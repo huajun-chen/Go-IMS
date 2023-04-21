@@ -1,0 +1,46 @@
+name: "Go-IMS"
+port: 8080
+page: 1
+pageSize: 20
+rateLimit: 100000
+rateLimitSwitch: false
+
+logs:
+  level: "debug"
+  fileName: "./logs/Go-IMS.log"
+  maxSize: 100
+  maxAge: 365
+  maxBackups: 1000
+  compress: false
+
+mysql:
+  name: "root"
+  host: "127.0.0.1"
+  port: 3306
+  password: "2wsx#EDC"
+  dbName: "go_ims"
+  maxIdleConns: 10
+  maxOpenConns: 30
+
+redis:
+  host: "127.0.0.1"
+  port: 6379
+  password: "2wsx#EDC"
+
+jwt:
+  key: "EYsnfKMf5XWk87LASEs28Dj5ZqGkSer8"
+  tokenExpiration: 21600
+
+adminaccount:
+  userName: "admin"
+  password: "admin12345"
+
+user:
+  pwdEncDiff: 10
+  ipFrequency: 100
+  timeLimit: 1
+
+language:
+  languageType: "zh-CN"
+  tranfilePath: "./static/i18n"
+  allLanguage: "zh-CN,en-US"

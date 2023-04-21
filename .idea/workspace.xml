@@ -4,15 +4,69 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebe555ee-9a78-4ddb-bac2-912697b9a606" name="Changes" comment="" />
+    <list default="true" id="ebe555ee-9a78-4ddb-bac2-912697b9a606" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/restapi/config/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/controller/v1/other/health.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/controller/v1/user/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/dao/user/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/global/globalvar.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/initialize/account.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/initialize/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/initialize/logger.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/initialize/mysql.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/initialize/redis.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/initialize/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/initialize/runserver.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/initialize/validator.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/middleware/admin.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/middleware/cors.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/middleware/i18n.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/middleware/ipfrequency.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/middleware/jwt.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/middleware/logger.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/middleware/ratelimit.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/model/user/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/parameter/base.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/parameter/reqstruct/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/parameter/resstruct/health.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/parameter/resstruct/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/response/response.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/router/routerv1.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/service/other/health.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/service/user/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/setting-dev.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/static/i18n/zh-CN.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/utils/json.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/utils/jwt.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/utils/md5.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/utils/migration.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/utils/page.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/utils/password.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/utils/redis.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/utils/systeminfo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/utils/validator.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/main.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
   <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2OhOceUq9UvLbpqsZCs6ednqos7" />
   <component name="ProjectViewState">
@@ -21,6 +75,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -29,10 +84,24 @@
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/chenhuajun/golangprojects/Go-IMS",
+    "last_opened_file_path": "/Users/chenhuajun/golangprojects/Go-IMS/restapi/controller/v1/other",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/restapi/controller/v1/other" />
+      <recent name="$PROJECT_DIR$/restapi/model" />
+      <recent name="$PROJECT_DIR$/restapi/dao" />
+      <recent name="$PROJECT_DIR$/restapi/service" />
+      <recent name="$PROJECT_DIR$/restapi/static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/restapi/model/user" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
