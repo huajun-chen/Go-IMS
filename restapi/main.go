@@ -1,18 +1,24 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"Go-IMS/initialize"
+	"github.com/fatih/color"
+)
 
 func main() {
-	// 创建一个默认的路由引擎
-	r := gin.Default()
-	// GET：请求方式；/hello：请求的路径
-	// 当客户端以GET方法请求/hello路径时，会执行后面的匿名函数
-	r.GET("api/v1/hello", func(c *gin.Context) {
-		// c.JSON：返回JSON格式的数据
-		c.JSON(200, gin.H{
-			"message": "Hello world!",
-		})
-	})
-	// 启动HTTP服务，默认在0.0.0.0:8080启动服务
-	r.Run()
+	// 1.初始化YAML配置
+	initialize.InitConfig()
+	// 2.初始化日志信息
+	initialize.InitLogger()
+	// 3.初始化Validator参数校验结果翻译
+	initialize.InitTrans()
+	// 4.初始化MySQL
+	initialize.InitMysqlDB()
+	// 5.初始化Redis
+	initialize.InitRedis()
+	// 6.初始化admin账户
+	initialize.InitAdminAccount()
+	color.Cyan("Gin服务开始了...")
+	// 7.启动Gin服务（优雅关闭）
+	initialize.RunServer()
 }
