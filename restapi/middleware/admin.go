@@ -21,8 +21,8 @@ func IsAdminAuth() gin.HandlerFunc {
 		// 判断是否具有权限
 		if currentUser.AuthorityID != 1 {
 			response.Response(c, response.ResStruct{
-				Code: 10014,
-				Msg:  global.I18nMap["10014"],
+				Code: 10015,
+				Msg:  global.I18nMap["10015"],
 			})
 			// 中断之后的中间件
 			c.Abort()

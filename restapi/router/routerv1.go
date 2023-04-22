@@ -35,11 +35,17 @@ func Routerv1(r *gin.RouterGroup) {
 		// 需要Token的接口
 		userRouterToken := userRouter.Group("")
 		userRouterToken.Use(middleware.JWTAuth())
-		userRouterToken.DELETE("/logout", user.ConLogout) // 登出
+		userRouterToken.DELETE("/logout", user.ConLogout)      // 登出
+		userRouterToken.GET("/info/:id", user.ConGetUser)      // 查看用户信息
+		userRouterToken.PUT("/info/:id", user.ConUpdateUser)   // 修改用户信息
+		userRouterToken.PUT("/pwd/:id", user.ConUpdateUserPwd) // 修改用户密码
 		// 需要Token和权限的接口
 		{
 			userRouterTokenAdmin := userRouterToken.Group("")
 			userRouterTokenAdmin.Use(middleware.IsAdminAuth())
+			userRouterTokenAdmin.POST("/info/:user_name", user.ConCreateUser) // 创建用户
+			userRouterTokenAdmin.GET("/list", user.ConGetUserList)            // 用户列表
+			userRouterTokenAdmin.DELETE("/info/:id", user.ConDeleteUser)      // 删除用户
 		}
 	}
 }
