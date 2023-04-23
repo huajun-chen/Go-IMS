@@ -1,7 +1,7 @@
 package other
 
 import (
-	"Go-IMS/service/other"
+	"Go-WMS/service/other"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

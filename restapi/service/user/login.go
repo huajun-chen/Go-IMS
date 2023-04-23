@@ -1,12 +1,12 @@
 package user
 
 import (
-	"Go-IMS/dao/user"
-	"Go-IMS/global"
-	"Go-IMS/param"
-	"Go-IMS/param/req"
-	"Go-IMS/param/resp"
-	"Go-IMS/utils"
+	"Go-WMS/dao/user"
+	"Go-WMS/global"
+	"Go-WMS/param"
+	"Go-WMS/param/req"
+	"Go-WMS/param/resp"
+	"Go-WMS/utils"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	"net/http"

@@ -1,7 +1,7 @@
 package initialize
 
 import (
-	"Go-IMS/global"
+	"Go-WMS/global"
 	"github.com/natefinch/lumberjack"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"

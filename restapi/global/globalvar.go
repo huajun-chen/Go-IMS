@@ -1,7 +1,7 @@
 package global
 
 import (
-	"Go-IMS/config"
+	"Go-WMS/config"
 	ut "github.com/go-playground/universal-translator"
 	"github.com/go-redis/redis"
 	"go.uber.org/zap"

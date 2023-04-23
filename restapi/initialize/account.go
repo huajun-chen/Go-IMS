@@ -1,10 +1,10 @@
 package initialize
 
 import (
-	"Go-IMS/dao/user"
-	"Go-IMS/global"
-	"Go-IMS/model"
-	"Go-IMS/utils"
+	"Go-WMS/dao/user"
+	"Go-WMS/global"
+	"Go-WMS/model"
+	"Go-WMS/utils"
 )
 
 // InitAdminAccount 初始化一个admin账户

@@ -1,8 +1,8 @@
 package user
 
 import (
-	"Go-IMS/global"
-	"Go-IMS/model"
+	"Go-WMS/global"
+	"Go-WMS/model"
 )
 
 // DaoCreateUser 管理员权限创建用户

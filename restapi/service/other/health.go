@@ -1,10 +1,10 @@
 package other
 
 import (
-	"Go-IMS/global"
-	"Go-IMS/param"
-	"Go-IMS/param/resp"
-	"Go-IMS/utils"
+	"Go-WMS/global"
+	"Go-WMS/param"
+	"Go-WMS/param/resp"
+	"Go-WMS/utils"
 	"go.uber.org/zap"
 	"net/http"
 )

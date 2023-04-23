@@ -1,8 +1,8 @@
 package initialize
 
 import (
-	"Go-IMS/global"
-	"Go-IMS/utils"
+	"Go-WMS/global"
+	"Go-WMS/utils"
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

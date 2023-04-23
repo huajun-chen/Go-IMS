@@ -1,9 +1,9 @@
 package user
 
 import (
-	"Go-IMS/param"
-	"Go-IMS/service/user"
-	"Go-IMS/utils"
+	"Go-WMS/param"
+	"Go-WMS/service/user"
+	"Go-WMS/utils"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

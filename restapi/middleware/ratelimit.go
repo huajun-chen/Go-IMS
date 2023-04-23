@@ -1,8 +1,8 @@
 package middleware
 
 import (
-	"Go-IMS/global"
-	"Go-IMS/param"
+	"Go-WMS/global"
+	"Go-WMS/param"
 	"github.com/gin-gonic/gin"
 	"github.com/juju/ratelimit"
 	"net/http"

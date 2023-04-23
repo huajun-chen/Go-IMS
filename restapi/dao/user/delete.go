@@ -1,8 +1,8 @@
 package user
 
 import (
-	"Go-IMS/global"
-	"Go-IMS/model"
+	"Go-WMS/global"
+	"Go-WMS/model"
 )
 
 // DaoDeleteUserById 根据ID删除用户信息

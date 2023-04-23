@@ -1,8 +1,8 @@
 package user
 
 import (
-	"Go-IMS/global"
-	"Go-IMS/model"
+	"Go-WMS/global"
+	"Go-WMS/model"
 )
 
 // DaoUpdateUser 根据用户ID更新用户信息

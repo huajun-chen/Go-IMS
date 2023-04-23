@@ -1,9 +1,9 @@
 package initialize
 
 import (
-	"Go-IMS/global"
-	"Go-IMS/middleware"
-	"Go-IMS/router"
+	"Go-WMS/global"
+	"Go-WMS/middleware"
+	"Go-WMS/router"
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 )

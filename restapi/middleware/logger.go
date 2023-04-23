@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"Go-IMS/global"
+	"Go-WMS/global"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	"net"
