@@ -3,9 +3,9 @@ package middleware
 import (
 	"Go-IMS/global"
 	"Go-IMS/param"
-	"Go-IMS/response"
 	"Go-IMS/utils"
 	"github.com/gin-gonic/gin"
+	"net/http"
 	"strings"
 )
 
@@ -23,7 +23,7 @@ func JWTAuth() gin.HandlerFunc {
 				Code: 10009,
 				Msg:  global.I18nMap["10009"],
 			}
-			response.Response(c, failStruct)
+			c.JSON(http.StatusOK, failStruct)
 			c.Abort()
 			return
 		}
@@ -34,7 +34,7 @@ func JWTAuth() gin.HandlerFunc {
 				Code: 10011,
 				Msg:  global.I18nMap["10011"],
 			}
-			response.Response(c, failStruct)
+			c.JSON(http.StatusOK, failStruct)
 			c.Abort()
 			return
 		}
@@ -48,7 +48,7 @@ func JWTAuth() gin.HandlerFunc {
 					Code: 10010,
 					Msg:  global.I18nMap["10010"],
 				}
-				response.Response(c, failStruct)
+				c.JSON(http.StatusOK, failStruct)
 				c.Abort()
 				return
 			}
@@ -56,7 +56,7 @@ func JWTAuth() gin.HandlerFunc {
 				Code: 10011,
 				Msg:  global.I18nMap["10011"],
 			}
-			response.Response(c, failStruct)
+			c.JSON(http.StatusOK, failStruct)
 			c.Abort()
 			return
 		}
@@ -67,7 +67,7 @@ func JWTAuth() gin.HandlerFunc {
 				Code: 10011,
 				Msg:  global.I18nMap["10011"], // Token在黑名单中，定义为失效
 			}
-			response.Response(c, failStruct)
+			c.JSON(http.StatusOK, failStruct)
 			c.Abort()
 			return
 		}

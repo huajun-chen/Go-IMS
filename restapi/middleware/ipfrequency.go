@@ -3,8 +3,8 @@ package middleware
 import (
 	"Go-IMS/global"
 	"Go-IMS/param"
-	"Go-IMS/response"
 	"github.com/gin-gonic/gin"
+	"net/http"
 	"time"
 )
 
@@ -34,7 +34,7 @@ func Frequency() gin.HandlerFunc {
 					Code: 10021,
 					Msg:  global.I18nMap["10021"],
 				}
-				response.Response(c, failStruct)
+				c.JSON(http.StatusOK, failStruct)
 				c.Abort()
 				return
 			} else {

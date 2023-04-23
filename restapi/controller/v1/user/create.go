@@ -2,10 +2,10 @@ package user
 
 import (
 	"Go-IMS/param/req"
-	"Go-IMS/response"
 	"Go-IMS/service/user"
 	"Go-IMS/utils"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 // ConCreateUser 控制层：创建用户（管理员权限）
@@ -18,9 +18,9 @@ func ConCreateUser(c *gin.Context) {
 	userName := req.ReqCreateUser{}
 	if err := c.ShouldBindUri(&userName); err != nil {
 		parErrStr := utils.HandleValidatorError(err)
-		response.Response(c, parErrStr)
+		c.JSON(http.StatusOK, parErrStr)
 		return
 	}
 	resStruct := user.SerCreateUser(userName)
-	response.Response(c, resStruct)
+	c.JSON(http.StatusOK, resStruct)
 }

@@ -1,9 +1,9 @@
 package other
 
 import (
-	"Go-IMS/response"
 	"Go-IMS/service/other"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 // ConGetSystemInfo 控制层：获取系统信息
@@ -13,5 +13,5 @@ import (
 //		无
 func ConGetSystemInfo(c *gin.Context) {
 	resStruct := other.SerGetSystemInfo()
-	response.Response(c, resStruct)
+	c.JSON(http.StatusOK, resStruct)
 }

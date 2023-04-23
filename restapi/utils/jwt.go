@@ -3,10 +3,10 @@ package utils
 import (
 	"Go-IMS/global"
 	"Go-IMS/param"
-	"Go-IMS/response"
 	"errors"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
+	"net/http"
 	"time"
 )
 
@@ -57,7 +57,7 @@ func CreateToken(c *gin.Context, id uint, role int, name string) string {
 			Code: 10012,
 			Msg:  global.I18nMap["10012"],
 		}
-		response.Response(c, failStruct)
+		c.JSON(http.StatusOK, failStruct)
 	}
 	return token
 }

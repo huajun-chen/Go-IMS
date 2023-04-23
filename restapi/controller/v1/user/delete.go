@@ -2,10 +2,10 @@ package user
 
 import (
 	"Go-IMS/param"
-	"Go-IMS/response"
 	"Go-IMS/service/user"
 	"Go-IMS/utils"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 // ConDeleteUser 控制层：删除用户（管理员权限）
@@ -17,9 +17,9 @@ func ConDeleteUser(c *gin.Context) {
 	userId := param.ReqId{}
 	if err := c.ShouldBindUri(&userId); err != nil {
 		parError := utils.HandleValidatorError(err)
-		response.Response(c, parError)
+		c.JSON(http.StatusOK, parError)
 		return
 	}
 	resStruct := user.SerDeleteUser(userId)
-	response.Response(c, resStruct)
+	c.JSON(http.StatusOK, resStruct)
 }

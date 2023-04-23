@@ -2,10 +2,10 @@ package user
 
 import (
 	"Go-IMS/param"
-	"Go-IMS/response"
 	"Go-IMS/service/user"
 	"Go-IMS/utils"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 // ConGetUser 控制层：根据ID查询用户信息
@@ -17,11 +17,11 @@ func ConGetUser(c *gin.Context) {
 	userId := param.ReqId{}
 	if err := c.ShouldBindUri(&userId); err != nil {
 		parError := utils.HandleValidatorError(err)
-		response.Response(c, parError)
+		c.JSON(http.StatusOK, parError)
 		return
 	}
 	resStruct := user.SerGetUser(userId, c)
-	response.Response(c, resStruct)
+	c.JSON(http.StatusOK, resStruct)
 }
 
 // ConGetUserList 控制层：用户列表（管理员权限）
@@ -34,9 +34,9 @@ func ConGetUserList(c *gin.Context) {
 	reqPage := param.ReqPage{}
 	if err := c.ShouldBindQuery(&reqPage); err != nil {
 		parErrStr := utils.HandleValidatorError(err)
-		response.Response(c, parErrStr)
+		c.JSON(http.StatusOK, parErrStr)
 		return
 	}
 	resStruct := user.SerGetUserList(reqPage)
-	response.Response(c, resStruct)
+	c.JSON(http.StatusOK, resStruct)
 }

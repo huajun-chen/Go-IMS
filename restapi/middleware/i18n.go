@@ -3,10 +3,10 @@ package middleware
 import (
 	"Go-IMS/global"
 	"Go-IMS/param"
-	"Go-IMS/response"
 	"Go-IMS/utils"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"net/http"
 	"strings"
 )
 
@@ -33,7 +33,7 @@ func I18n() gin.HandlerFunc {
 				Code: 10006,
 				Msg:  global.I18nMap["10006"],
 			}
-			response.Response(c, failStruct)
+			c.JSON(http.StatusOK, failStruct)
 			c.Abort()
 			return
 		}

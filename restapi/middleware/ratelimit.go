@@ -3,9 +3,9 @@ package middleware
 import (
 	"Go-IMS/global"
 	"Go-IMS/param"
-	"Go-IMS/response"
 	"github.com/gin-gonic/gin"
 	"github.com/juju/ratelimit"
+	"net/http"
 )
 
 // RateLimit 限流中间件，限制并发的请求数量
@@ -24,7 +24,7 @@ func RateLimit() gin.HandlerFunc {
 				Code: 10022,
 				Msg:  global.I18nMap["10022"],
 			}
-			response.Response(c, failStruct)
+			c.JSON(http.StatusOK, failStruct)
 			c.Abort()
 			return
 		}
