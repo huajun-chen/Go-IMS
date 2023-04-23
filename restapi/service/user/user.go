@@ -1,7 +1,7 @@
 package user
 
 import (
-	dao "Go-IMS/dao/user"
+	"Go-IMS/dao/user"
 	"Go-IMS/global"
 	"Go-IMS/model"
 	"Go-IMS/parameter"
