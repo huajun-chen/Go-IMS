@@ -3,9 +3,9 @@ package user
 import (
 	"Go-IMS/dao/user"
 	"Go-IMS/global"
-	"Go-IMS/parameter/reqstruct"
-	"Go-IMS/parameter/resstruct"
-	"Go-IMS/response"
+	"Go-IMS/param"
+	"Go-IMS/param/req"
+	"Go-IMS/param/resp"
 	"Go-IMS/utils"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
@@ -15,15 +15,15 @@ import (
 
 // SerLogin 业务层：用户登录
 // 参数：
-//		loginForm：登录时需要的参数
+//		reqLogin：登录时需要的参数
 //		c：gin.Context的指针
 // 返回值：
-//		response.ResStruct：响应的结构体
-func SerLogin(loginForm reqstruct.LoginForm, c *gin.Context) response.ResStruct {
+//		param.Resp：响应的结构体
+func SerLogin(reqLogin req.ReqLogin, c *gin.Context) param.Resp {
 	// 查询用户是否存在
-	userModel, err := user.DaoGetUserByUserName(loginForm.UserName)
+	userModel, err := user.DaoGetUserByUserName(reqLogin.UserName)
 	if err != nil {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10013,
 			Msg:  global.I18nMap["10013"],
 		}
@@ -31,9 +31,9 @@ func SerLogin(loginForm reqstruct.LoginForm, c *gin.Context) response.ResStruct 
 	}
 
 	// 判断密码是否正确
-	pwdBool := utils.CheckPassword(userModel.Password, loginForm.Password)
+	pwdBool := utils.CheckPassword(userModel.Password, reqLogin.Password)
 	if !pwdBool {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10016,
 			Msg:  global.I18nMap["10016"],
 		}
@@ -42,12 +42,12 @@ func SerLogin(loginForm reqstruct.LoginForm, c *gin.Context) response.ResStruct 
 
 	// 生成新的Token
 	token := utils.CreateToken(c, userModel.ID, userModel.Role, userModel.UserName)
-	data := resstruct.LoginReturn{
+	data := resp.RespLogin{
 		ID:    userModel.ID,
 		Name:  userModel.UserName,
 		Token: token,
 	}
-	succStruct := response.ResStruct{
+	succStruct := param.Resp{
 		Code: http.StatusOK,
 		Msg:  global.I18nMap["2000"],
 		Data: data,
@@ -59,8 +59,8 @@ func SerLogin(loginForm reqstruct.LoginForm, c *gin.Context) response.ResStruct 
 // 参数：
 //		c：gin.Context的指针
 // 返回值：
-//		response.ResStruct：响应的结构体
-func SerLogout(c *gin.Context) response.ResStruct {
+//		param.Resp：响应的结构体
+func SerLogout(c *gin.Context) param.Resp {
 	// 获取Token
 	tokenStr, _ := c.Get("token")
 	// 获取用户ID
@@ -82,7 +82,7 @@ func SerLogout(c *gin.Context) response.ResStruct {
 		}
 	}()
 
-	succStruct := response.ResStruct{
+	succStruct := param.Resp{
 		Code: http.StatusOK,
 		Msg:  global.I18nMap["2001"],
 	}

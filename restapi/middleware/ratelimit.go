@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"Go-IMS/global"
+	"Go-IMS/param"
 	"Go-IMS/response"
 	"github.com/gin-gonic/gin"
 	"github.com/juju/ratelimit"
@@ -19,10 +20,11 @@ func RateLimit() gin.HandlerFunc {
 		// 创建限流器
 		limiter := ratelimit.NewBucketWithRate(rateLimtFloat64, rateLimtInt64)
 		if limiter.TakeAvailable(1) == 0 {
-			response.Response(c, response.ResStruct{
+			failStruct := param.Resp{
 				Code: 10022,
 				Msg:  global.I18nMap["10022"],
-			})
+			}
+			response.Response(c, failStruct)
 			c.Abort()
 			return
 		}

@@ -1,7 +1,7 @@
 package user
 
 import (
-	"Go-IMS/parameter"
+	"Go-IMS/param"
 	"Go-IMS/response"
 	"Go-IMS/service/user"
 	"Go-IMS/utils"
@@ -14,7 +14,7 @@ import (
 // 返回值：
 //		无
 func ConGetUser(c *gin.Context) {
-	userId := parameter.IdForm{}
+	userId := param.ReqId{}
 	if err := c.ShouldBindUri(&userId); err != nil {
 		parError := utils.HandleValidatorError(err)
 		response.Response(c, parError)
@@ -31,12 +31,12 @@ func ConGetUser(c *gin.Context) {
 //		无
 func ConGetUserList(c *gin.Context) {
 	// 页数，页码参数
-	pageForm := parameter.PageForm{}
-	if err := c.ShouldBindQuery(&pageForm); err != nil {
+	reqPage := param.ReqPage{}
+	if err := c.ShouldBindQuery(&reqPage); err != nil {
 		parErrStr := utils.HandleValidatorError(err)
 		response.Response(c, parErrStr)
 		return
 	}
-	resStruct := user.SerGetUserList(pageForm)
+	resStruct := user.SerGetUserList(reqPage)
 	response.Response(c, resStruct)
 }

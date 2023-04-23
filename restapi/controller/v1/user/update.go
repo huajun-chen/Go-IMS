@@ -1,8 +1,8 @@
 package user
 
 import (
-	"Go-IMS/parameter"
-	"Go-IMS/parameter/reqstruct"
+	"Go-IMS/param"
+	"Go-IMS/param/req"
 	"Go-IMS/response"
 	"Go-IMS/service/user"
 	"Go-IMS/utils"
@@ -15,14 +15,14 @@ import (
 // 返回值：
 //		无
 func ConUpdateUser(c *gin.Context) {
-	userId := parameter.IdForm{}
+	userId := param.ReqId{}
 	if err := c.ShouldBindUri(&userId); err != nil {
 		parError := utils.HandleValidatorError(err)
 		response.Response(c, parError)
 		return
 	}
 	// 需要修改的字段参数
-	updateInfo := reqstruct.UpdateUserForm{}
+	updateInfo := req.ReqUpdateUser{}
 	if err := c.ShouldBindJSON(&updateInfo); err != nil {
 		parErrStr := utils.HandleValidatorError(err)
 		response.Response(c, parErrStr)
@@ -38,14 +38,14 @@ func ConUpdateUser(c *gin.Context) {
 // 返回值：
 //		无
 func ConUpdateUserPwd(c *gin.Context) {
-	userId := parameter.IdForm{}
+	userId := param.ReqId{}
 	if err := c.ShouldBindUri(&userId); err != nil {
 		parError := utils.HandleValidatorError(err)
 		response.Response(c, parError)
 		return
 	}
 	// 修改密码的参数
-	updatePwd := reqstruct.UpdateUserPwdForm{}
+	updatePwd := req.ReqUpdateUserPwd{}
 	if err := c.ShouldBindJSON(&updatePwd); err != nil {
 		parErrSrt := utils.HandleValidatorError(err)
 		response.Response(c, parErrSrt)

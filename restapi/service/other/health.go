@@ -2,8 +2,8 @@ package other
 
 import (
 	"Go-IMS/global"
-	"Go-IMS/parameter/resstruct"
-	"Go-IMS/response"
+	"Go-IMS/param"
+	"Go-IMS/param/resp"
 	"Go-IMS/utils"
 	"go.uber.org/zap"
 	"net/http"
@@ -13,13 +13,13 @@ import (
 // 参数：
 //		无
 // 返回值：
-//		response.ResStruct：响应的结构体
-func SerGetSystemInfo() response.ResStruct {
+//		param.Resp：响应的结构体
+func SerGetSystemInfo() param.Resp {
 	// CPU
 	cpuStruct, err := utils.CPUInfo()
 	if err != nil {
 		zap.S().Errorf("%s：%s", global.I18nMap["10023"], err)
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10023,
 			Msg:  global.I18nMap["10023"],
 		}
@@ -29,7 +29,7 @@ func SerGetSystemInfo() response.ResStruct {
 	memStruct, err := utils.MemInfo()
 	if err != nil {
 		zap.S().Errorf("%s：%s", global.I18nMap["10024"], err)
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10024,
 			Msg:  global.I18nMap["10024"],
 		}
@@ -39,20 +39,20 @@ func SerGetSystemInfo() response.ResStruct {
 	diskStruct, err := utils.DiskInfo()
 	if err != nil {
 		zap.S().Errorf("%s：%s", global.I18nMap["10025"], err)
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10025,
 			Msg:  global.I18nMap["10025"],
 		}
 		return failStruct
 	}
 
-	data := resstruct.SystemReturn{
+	data := resp.RespSystem{
 		CPU:    cpuStruct,
 		Memory: memStruct,
 		Disk:   diskStruct,
 	}
 
-	succStruct := response.ResStruct{
+	succStruct := param.Resp{
 		Code: http.StatusOK,
 		Data: data,
 	}

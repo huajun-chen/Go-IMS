@@ -3,8 +3,7 @@ package user
 import (
 	"Go-IMS/dao/user"
 	"Go-IMS/global"
-	"Go-IMS/parameter"
-	"Go-IMS/response"
+	"Go-IMS/param"
 	"net/http"
 )
 
@@ -12,17 +11,17 @@ import (
 // 参数：
 //		userId：用户ID
 // 返回值：
-//		response.ResStruct：响应的结构体
-func SerDeleteUser(userId parameter.IdForm) response.ResStruct {
+//		param.Resp：响应的结构体
+func SerDeleteUser(userId param.ReqId) param.Resp {
 	err := user.DaoDeleteUserById(userId.ID)
 	if err != nil {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10002,
 			Msg:  global.I18nMap["10002"],
 		}
 		return failStruct
 	}
-	succStruct := response.ResStruct{
+	succStruct := param.Resp{
 		Code: http.StatusOK,
 		Msg:  global.I18nMap["2003"],
 	}

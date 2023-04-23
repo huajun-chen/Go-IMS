@@ -4,9 +4,8 @@ import (
 	"Go-IMS/dao/user"
 	"Go-IMS/global"
 	"Go-IMS/model"
-	"Go-IMS/parameter"
-	"Go-IMS/parameter/reqstruct"
-	"Go-IMS/response"
+	"Go-IMS/param"
+	"Go-IMS/param/req"
 	"Go-IMS/utils"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -15,15 +14,15 @@ import (
 // SerUpdateUser 业务层：修改用户信息
 // 参数：
 //		userId：用户ID
-//		updateUserForm：需要修改的信息
+//		reqUpdateUser：需要修改的信息
 //		c：gin.Context的指针
 // 返回值：
-//		response.ResStruct：响应的结构体
-func SerUpdateUser(userId parameter.IdForm, updateInfo reqstruct.UpdateUserForm, c *gin.Context) response.ResStruct {
+//		param.Resp：响应的结构体
+func SerUpdateUser(userId param.ReqId, reqUpdateUser req.ReqUpdateUser, c *gin.Context) param.Resp {
 	// 判断是否是本人
 	tokenUserId, _ := c.Get("userId")
 	if userId.ID != tokenUserId {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10015,
 			Msg:  global.I18nMap["10015"],
 		}
@@ -31,19 +30,19 @@ func SerUpdateUser(userId parameter.IdForm, updateInfo reqstruct.UpdateUserForm,
 	}
 
 	updateUser := model.User{
-		Gender: updateInfo.Gender,
-		Desc:   updateInfo.Desc,
-		Mobile: updateInfo.Mobile,
-		Email:  updateInfo.Email,
+		Gender: reqUpdateUser.Gender,
+		Desc:   reqUpdateUser.Desc,
+		Mobile: reqUpdateUser.Mobile,
+		Email:  reqUpdateUser.Email,
 	}
 	if err := user.DaoUpdateUser(userId.ID, updateUser); err != nil {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10003,
 			Msg:  global.I18nMap["10003"],
 		}
 		return failStruct
 	}
-	succStruct := response.ResStruct{
+	succStruct := param.Resp{
 		Code: http.StatusOK,
 		Msg:  global.I18nMap["2004"],
 	}
@@ -53,15 +52,15 @@ func SerUpdateUser(userId parameter.IdForm, updateInfo reqstruct.UpdateUserForm,
 // SerUpdateUserPwd 业务层：修改用户密码
 // 参数：
 //		userId：用户ID
-//		updateUserPwdForm：修改的密码
+//		reqUpdatePwd：修改的密码
 //		c：gin.Context的指针
 // 返回值：
-//		response.ResStruct：响应的结构体
-func SerUpdateUserPwd(userId parameter.IdForm, updatePwd reqstruct.UpdateUserPwdForm, c *gin.Context) response.ResStruct {
+//		param.Resp：响应的结构体
+func SerUpdateUserPwd(userId param.ReqId, reqUpdatePwd req.ReqUpdateUserPwd, c *gin.Context) param.Resp {
 	// 判断是否是本人
 	tokenUserId, _ := c.Get("userId")
 	if userId.ID != tokenUserId {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10015,
 			Msg:  global.I18nMap["10015"],
 		}
@@ -70,7 +69,7 @@ func SerUpdateUserPwd(userId parameter.IdForm, updatePwd reqstruct.UpdateUserPwd
 	// 查询
 	userModel, err := user.DaoGetUserById(userId.ID)
 	if err != nil {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10006,
 			Msg:  global.I18nMap["10006"],
 		}
@@ -78,9 +77,9 @@ func SerUpdateUserPwd(userId parameter.IdForm, updatePwd reqstruct.UpdateUserPwd
 	}
 
 	// 判断旧密码是否正确
-	pwdBool := utils.CheckPassword(userModel.Password, updatePwd.PasswordOld)
+	pwdBool := utils.CheckPassword(userModel.Password, reqUpdatePwd.PasswordOld)
 	if !pwdBool {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10019,
 			Msg:  global.I18nMap["10019"],
 		}
@@ -88,8 +87,8 @@ func SerUpdateUserPwd(userId parameter.IdForm, updatePwd reqstruct.UpdateUserPwd
 	}
 
 	// 判断旧密码与新密码是否一致
-	if updatePwd.PasswordOld == updatePwd.Password {
-		failStruct := response.ResStruct{
+	if reqUpdatePwd.PasswordOld == reqUpdatePwd.Password {
+		failStruct := param.Resp{
 			Code: 10020,
 			Msg:  global.I18nMap["10020"],
 		}
@@ -97,8 +96,8 @@ func SerUpdateUserPwd(userId parameter.IdForm, updatePwd reqstruct.UpdateUserPwd
 	}
 
 	// 判断新密码是否一致
-	if updatePwd.Password != updatePwd.Password2 {
-		failStruct := response.ResStruct{
+	if reqUpdatePwd.Password != reqUpdatePwd.Password2 {
+		failStruct := param.Resp{
 			Code: 10017,
 			Msg:  global.I18nMap["10017"],
 		}
@@ -106,16 +105,16 @@ func SerUpdateUserPwd(userId parameter.IdForm, updatePwd reqstruct.UpdateUserPwd
 	}
 
 	// 密码加密
-	pwdStr, _ := utils.SetPassword(updatePwd.Password)
+	pwdStr, _ := utils.SetPassword(reqUpdatePwd.Password)
 	updateUserPwd := model.User{Password: pwdStr}
 	if err := user.DaoUpdateUser(userId.ID, updateUserPwd); err != nil {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10003,
 			Msg:  global.I18nMap["10003"],
 		}
 		return failStruct
 	}
-	succStruct := response.ResStruct{
+	succStruct := param.Resp{
 		Code: http.StatusOK,
 		Msg:  global.I18nMap["2004"],
 	}

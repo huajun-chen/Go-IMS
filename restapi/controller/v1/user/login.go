@@ -1,7 +1,7 @@
 package user
 
 import (
-	"Go-IMS/parameter/reqstruct"
+	"Go-IMS/param/req"
 	"Go-IMS/response"
 	"Go-IMS/service/user"
 	"Go-IMS/utils"
@@ -15,13 +15,13 @@ import (
 //		无
 func ConLogin(c *gin.Context) {
 	// 获取登录时需要的参数
-	loginForm := reqstruct.LoginForm{}
-	if err := c.ShouldBindJSON(&loginForm); err != nil {
+	reqLogin := req.ReqLogin{}
+	if err := c.ShouldBindJSON(&reqLogin); err != nil {
 		parErrStr := utils.HandleValidatorError(err)
 		response.Response(c, parErrStr)
 		return
 	}
-	resStruct := user.SerLogin(loginForm, c)
+	resStruct := user.SerLogin(reqLogin, c)
 	response.Response(c, resStruct)
 }
 

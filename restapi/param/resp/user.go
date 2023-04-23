@@ -1,14 +1,14 @@
-package resstruct
+package resp
 
-// LoginReturn 登录接口返回的数据
-type LoginReturn struct {
+// RespLogin 登录接口返回的数据
+type RespLogin struct {
 	ID    uint   `json:"id"`    // 用户ID
 	Name  string `json:"name"`  // 用户名
 	Token string `json:"token"` // 用户Token
 }
 
-// UserInfoReturn 用户信息
-type UserInfoReturn struct {
+// RespUserInfo 用户信息
+type RespUserInfo struct {
 	ID        uint   `json:"id"`         // 用户ID
 	CreatedAt string `json:"created_at"` // 创建时间
 	UserName  string `json:"user_name"`  // 用户名
@@ -19,8 +19,8 @@ type UserInfoReturn struct {
 	Email     string `json:"email"`      // 邮箱
 }
 
-// UserInfoListReturn 用户信息列表
-type UserInfoListReturn struct {
-	Total  int              `json:"total"`  // 总数
-	Values []UserInfoReturn `json:"values"` // 用户列表
+// RespUserList 用户信息列表
+type RespUserList struct {
+	Total  int            `json:"total"`  // 总数
+	Values []RespUserInfo `json:"values"` // 用户列表
 }

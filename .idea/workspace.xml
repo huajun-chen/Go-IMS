@@ -5,26 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebe555ee-9a78-4ddb-bac2-912697b9a606" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/restapi/controller/v1/user/create.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restapi/controller/v1/user/delete.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restapi/controller/v1/user/get.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restapi/controller/v1/user/login.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restapi/controller/v1/user/update.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restapi/dao/user/create.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restapi/dao/user/delete.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restapi/dao/user/get.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restapi/dao/user/update.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restapi/service/user/create.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restapi/service/user/delete.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restapi/service/user/get.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restapi/service/user/login.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restapi/service/user/update.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/controller/v1/user/user.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/dao/user/user.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/initialize/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/initialize/account.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/model/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/service/user/user.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/controller/v1/user/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/controller/v1/user/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/controller/v1/user/delete.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/controller/v1/user/delete.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/controller/v1/user/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/controller/v1/user/get.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/controller/v1/user/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/controller/v1/user/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/controller/v1/user/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/controller/v1/user/update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/middleware/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/middleware/admin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/middleware/i18n.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/middleware/i18n.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/middleware/ipfrequency.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/middleware/ipfrequency.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/middleware/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/middleware/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/middleware/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/middleware/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/middleware/ratelimit.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/middleware/ratelimit.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/parameter/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/param/base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/parameter/reqstruct/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/param/req/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/parameter/resstruct/health.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/param/resp/health.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/parameter/resstruct/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/param/resp/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/response/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/response/response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/service/other/health.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/service/other/health.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/service/user/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/service/user/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/service/user/delete.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/service/user/delete.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/service/user/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/service/user/get.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/service/user/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/service/user/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/service/user/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/service/user/update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/utils/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/utils/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/utils/systeminfo.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/utils/systeminfo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/utils/validator.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/utils/validator.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

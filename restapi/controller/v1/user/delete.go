@@ -1,7 +1,7 @@
 package user
 
 import (
-	"Go-IMS/parameter"
+	"Go-IMS/param"
 	"Go-IMS/response"
 	"Go-IMS/service/user"
 	"Go-IMS/utils"
@@ -14,7 +14,7 @@ import (
 // 返回值：
 //		无
 func ConDeleteUser(c *gin.Context) {
-	userId := parameter.IdForm{}
+	userId := param.ReqId{}
 	if err := c.ShouldBindUri(&userId); err != nil {
 		parError := utils.HandleValidatorError(err)
 		response.Response(c, parError)

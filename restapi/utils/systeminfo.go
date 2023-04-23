@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"Go-IMS/parameter/resstruct"
+	"Go-IMS/param/resp"
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/disk"
 	"github.com/shirou/gopsutil/mem"
@@ -13,10 +13,10 @@ import (
 // 参数：
 //		无
 // 返回值：
-//		resstruct.CPU：CPU核心数，使用率
+//		resp.CPU：CPU核心数，使用率
 //		error：错误信息
-func CPUInfo() (resstruct.CPUReturn, error) {
-	cpuStruct := resstruct.CPUReturn{}
+func CPUInfo() (resp.RespCPU, error) {
+	cpuStruct := resp.RespCPU{}
 	// CPU核心数，参数true：逻辑内核，参数false：物理内核
 	numCPUs, err := cpu.Counts(false)
 	if err != nil {
@@ -41,10 +41,10 @@ func CPUInfo() (resstruct.CPUReturn, error) {
 // 参数：
 //		无
 // 返回值：
-//		resstruct.Memory：内存全部，已使用，未使用，使用率
+//		resp.Memory：内存全部，已使用，未使用，使用率
 //		error：错误信息
-func MemInfo() (resstruct.MemoryReturn, error) {
-	memStruct := resstruct.MemoryReturn{}
+func MemInfo() (resp.RespMemory, error) {
+	memStruct := resp.RespMemory{}
 	// 获取内存信息
 	memUsage, err := mem.SwapMemory()
 	if err != nil {
@@ -71,10 +71,10 @@ func MemInfo() (resstruct.MemoryReturn, error) {
 // 参数：
 //		无
 // 返回值：
-//		resstruct.Disk：内存全部容量，已使用容量，未使用容量
+//		resp.Disk：内存全部容量，已使用容量，未使用容量
 //		error：错误信息
-func DiskInfo() (resstruct.DiskReturn, error) {
-	diskStruct := resstruct.DiskReturn{}
+func DiskInfo() (resp.RespDisk, error) {
+	diskStruct := resp.RespDisk{}
 	// 获取磁盘信息
 	diskUsage, err := disk.Usage("/")
 	if err != nil {

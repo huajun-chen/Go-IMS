@@ -3,9 +3,8 @@ package user
 import (
 	"Go-IMS/dao/user"
 	"Go-IMS/global"
-	"Go-IMS/parameter"
-	"Go-IMS/parameter/resstruct"
-	"Go-IMS/response"
+	"Go-IMS/param"
+	"Go-IMS/param/resp"
 	"Go-IMS/utils"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -14,14 +13,14 @@ import (
 
 // SerGetUserList 业务层：获取用户列表
 // 参数：
-//		pageForm：默认的页数，每页数量参数
+//		reqPage：默认的页数，每页数量参数
 // 返回值：
-//		response.ResStruct：响应的结构体
-func SerGetUserList(pageForm parameter.PageForm) response.ResStruct {
-	page, pageSize := utils.PageZero(pageForm.Page, pageForm.PageSize)
+//		param.Resp：响应的结构体
+func SerGetUserList(reqPage param.ReqPage) param.Resp {
+	page, pageSize := utils.PageZero(reqPage.Page, reqPage.PageSize)
 	total, userList, err := user.DaoGetUserList(page, pageSize)
 	if err != nil {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10004,
 			Msg:  global.I18nMap["10004"],
 		}
@@ -30,7 +29,7 @@ func SerGetUserList(pageForm parameter.PageForm) response.ResStruct {
 
 	// 获取数据为空
 	if total == 0 {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10005,
 			Msg:  global.I18nMap["10005"],
 		}
@@ -38,9 +37,9 @@ func SerGetUserList(pageForm parameter.PageForm) response.ResStruct {
 	}
 
 	// 过滤用户信息
-	var values []resstruct.UserInfoReturn
+	var values []resp.RespUserInfo
 	for _, u := range userList {
-		userInfo := resstruct.UserInfoReturn{
+		userInfo := resp.RespUserInfo{
 			ID:        u.ID,
 			CreatedAt: u.CreatedAt.Format("2006-01-02"),
 			UserName:  u.UserName,
@@ -52,11 +51,11 @@ func SerGetUserList(pageForm parameter.PageForm) response.ResStruct {
 		}
 		values = append(values, userInfo)
 	}
-	data := resstruct.UserInfoListReturn{
+	data := resp.RespUserList{
 		Total:  total,
 		Values: values,
 	}
-	succStruct := response.ResStruct{
+	succStruct := param.Resp{
 		Code: http.StatusOK,
 		Data: data,
 	}
@@ -68,12 +67,12 @@ func SerGetUserList(pageForm parameter.PageForm) response.ResStruct {
 //		userId：用户ID
 //		c：gin.Context的指针
 // 返回值：
-//		response.ResStruct：响应的结构体
-func SerGetUser(userId parameter.IdForm, c *gin.Context) response.ResStruct {
+//		param.Resp：响应的结构体
+func SerGetUser(userId param.ReqId, c *gin.Context) param.Resp {
 	// 判断是否是本人
 	tokenUserId, _ := c.Get("userId")
 	if tokenUserId != userId.ID {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10015,
 			Msg:  global.I18nMap["10015"],
 		}
@@ -83,14 +82,14 @@ func SerGetUser(userId parameter.IdForm, c *gin.Context) response.ResStruct {
 	// 用户能正常登录，说明用户信息一定存在
 	userModel, err := user.DaoGetUserById(userId.ID)
 	if err != nil {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10006,
 			Msg:  global.I18nMap["10006"],
 		}
 		return failStruct
 	}
 
-	data := resstruct.UserInfoReturn{
+	data := resp.RespUserInfo{
 		ID:        userModel.ID,
 		CreatedAt: userModel.CreatedAt.Format("2006-01-02"),
 		UserName:  userModel.UserName,
@@ -100,7 +99,7 @@ func SerGetUser(userId parameter.IdForm, c *gin.Context) response.ResStruct {
 		Mobile:    userModel.Mobile,
 		Email:     userModel.Email,
 	}
-	succStruct := response.ResStruct{
+	succStruct := param.Resp{
 		Code: http.StatusOK,
 		Data: data,
 	}

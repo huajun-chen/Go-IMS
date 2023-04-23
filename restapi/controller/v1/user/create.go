@@ -1,7 +1,7 @@
 package user
 
 import (
-	"Go-IMS/parameter/reqstruct"
+	"Go-IMS/param/req"
 	"Go-IMS/response"
 	"Go-IMS/service/user"
 	"Go-IMS/utils"
@@ -15,7 +15,7 @@ import (
 //		无
 func ConCreateUser(c *gin.Context) {
 	// 从uri中获取用户名
-	userName := reqstruct.CreateUserForm{}
+	userName := req.ReqCreateUser{}
 	if err := c.ShouldBindUri(&userName); err != nil {
 		parErrStr := utils.HandleValidatorError(err)
 		response.Response(c, parErrStr)
