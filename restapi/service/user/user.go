@@ -3,7 +3,7 @@ package user
 import (
 	dao "Go-IMS/dao/user"
 	"Go-IMS/global"
-	"Go-IMS/model/user"
+	"Go-IMS/model"
 	"Go-IMS/parameter"
 	"Go-IMS/parameter/reqstruct"
 	"Go-IMS/parameter/resstruct"
@@ -246,7 +246,7 @@ func SerUpdateUser(userId parameter.IdForm, updateUserForm reqstruct.UpdateUserF
 		return failStruct
 	}
 
-	updateUser := user.User{
+	updateUser := model.User{
 		Gender: updateUserForm.Gender,
 		Desc:   updateUserForm.Desc,
 		Mobile: updateUserForm.Mobile,
@@ -311,7 +311,7 @@ func SerUpdateUserPwd(userId parameter.IdForm, updateUserPwdForm reqstruct.Updat
 	}
 	// 密码加密
 	pwdStr, _ := utils.SetPassword(updateUserPwdForm.Password)
-	updateUserPwd := user.User{Password: pwdStr}
+	updateUserPwd := model.User{Password: pwdStr}
 	if err := dao.DaoUpdateUserInfo(userId.ID, updateUserPwd); err != nil {
 		failStruct := response.ResStruct{
 			Code: 10003,

@@ -3,7 +3,7 @@ package initialize
 import (
 	"Go-IMS/dao/user"
 	"Go-IMS/global"
-	"Go-IMS/model/user"
+	"Go-IMS/model"
 	"Go-IMS/utils"
 )
 
@@ -25,7 +25,7 @@ func InitAdminAccount() {
 			panic(err)
 		}
 		// 创建管理员账户
-		user := user.User{UserName: adminInfo.UserName, Password: pwdStr, Role: 1}
+		user := model.User{UserName: adminInfo.UserName, Password: pwdStr, Role: 1}
 		if err := global.DB.Create(&user).Error; err != nil {
 			panic(err)
 		}

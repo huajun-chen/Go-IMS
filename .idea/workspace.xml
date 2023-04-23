@@ -6,14 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ebe555ee-9a78-4ddb-bac2-912697b9a606" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/controller/v1/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/controller/v1/user/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restapi/dao/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/dao/user/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/middleware/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/middleware/admin.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/parameter/reqstruct/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/parameter/reqstruct/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/parameter/resstruct/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/parameter/resstruct/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/router/routerv1.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/router/routerv1.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/initialize/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/initialize/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/model/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/model/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restapi/service/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/service/user/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/static/i18n/zh-CN.json" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/static/i18n/zh-CN.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/utils/migration.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/utils/migration.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +62,7 @@
       <recent name="$PROJECT_DIR$/restapi/static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/restapi/model" />
       <recent name="$PROJECT_DIR$/restapi/model/user" />
     </key>
   </component>

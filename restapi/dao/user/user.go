@@ -2,7 +2,7 @@ package dao
 
 import (
 	"Go-IMS/global"
-	"Go-IMS/model/user"
+	"Go-IMS/model"
 	"Go-IMS/utils"
 )
 
@@ -12,10 +12,10 @@ import (
 // 返回值：
 //		*model.User：用户信息的指针
 //		bool：查询是否成功
-func DaoFindUserInfoToUserName(userName string) (*user.User, bool) {
-	var userInfo user.User
+func DaoFindUserInfoToUserName(userName string) (*model.User, bool) {
+	var userInfo model.User
 	// 查询用户
-	rows := global.DB.Where(&user.User{UserName: userName}).Find(&userInfo)
+	rows := global.DB.Where(&model.User{UserName: userName}).Find(&userInfo)
 	if rows.RowsAffected < 1 {
 		return &userInfo, false
 	}
@@ -28,8 +28,8 @@ func DaoFindUserInfoToUserName(userName string) (*user.User, bool) {
 // 返回值：
 //		*model.User：用户信息的指针
 //		bool：查询是否成功
-func DaoFindUserInfoToId(userId uint) (*user.User, bool) {
-	var userInfo user.User
+func DaoFindUserInfoToId(userId uint) (*model.User, bool) {
+	var userInfo model.User
 	rows := global.DB.First(&userInfo, userId)
 	if rows.RowsAffected < 1 {
 		return &userInfo, false
@@ -50,7 +50,7 @@ func CreateUserInfo(userName string) bool {
 	if err != nil {
 		return false
 	}
-	userInfo := user.User{
+	userInfo := model.User{
 		UserName: userName,
 		Password: pwdStr,
 		Role:     2, // 普通用户
@@ -67,7 +67,7 @@ func CreateUserInfo(userName string) bool {
 // 返回值：
 //		error：错误信息
 func DaoDeleteUserInfoToId(userId uint) error {
-	err := global.DB.Delete(&user.User{}, userId).Error
+	err := global.DB.Delete(&model.User{}, userId).Error
 	return err
 }
 
@@ -79,9 +79,9 @@ func DaoDeleteUserInfoToId(userId uint) error {
 //		int：总数量
 //		[]user.User：用户信息列表
 // 		error：错误信息
-func DaoGetUserList(page, pageSize int) (int, []user.User, error) {
+func DaoGetUserList(page, pageSize int) (int, []model.User, error) {
 	var usersCount int64
-	var users []user.User
+	var users []model.User
 	// 查询用户总数量
 	global.DB.Find(&users).Count(&usersCount)
 
@@ -109,8 +109,8 @@ func DaoGetUserList(page, pageSize int) (int, []user.User, error) {
 //		updateUser：需要更新的信息
 // 返回值：
 //		error：错误信息
-func DaoUpdateUserInfo(userId uint, updateUser user.User) error {
-	err := global.DB.Model(&user.User{}).Where("id = ?", userId).Updates(updateUser).Error
+func DaoUpdateUserInfo(userId uint, updateUser model.User) error {
+	err := global.DB.Model(&model.User{}).Where("id = ?", userId).Updates(updateUser).Error
 	if err != nil {
 		return err
 	}
