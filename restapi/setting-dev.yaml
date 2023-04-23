@@ -18,7 +18,7 @@ mysql:
   host: "127.0.0.1"
   port: 3306
   password: "2wsx#EDC"
-  dbName: "go_ims"
+  dbName: "go_wms"
   maxIdleConns: 10
   maxOpenConns: 30
 
