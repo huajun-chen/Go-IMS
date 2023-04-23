@@ -2,7 +2,7 @@ package utils
 
 import (
 	"Go-IMS/global"
-	"Go-IMS/response"
+	"Go-IMS/param"
 	"github.com/go-playground/validator/v10"
 	"strings"
 )
@@ -13,11 +13,11 @@ import (
 // 返回值：
 //		c：gin.Context的指针
 //		err：错误信息
-func HandleValidatorError(err error) response.ResStruct {
+func HandleValidatorError(err error) param.Resp {
 	//如何返回错误信息
 	errs, ok := err.(validator.ValidationErrors)
 	if !ok {
-		failStruct := response.ResStruct{
+		failStruct := param.Resp{
 			Code: 10000,
 			Msg:  global.I18nMap["10000"],
 			Data: err.Error(),
@@ -25,7 +25,7 @@ func HandleValidatorError(err error) response.ResStruct {
 		return failStruct
 	}
 	data := removeTopStruct(errs.Translate(global.Trans))
-	failStruct := response.ResStruct{
+	failStruct := param.Resp{
 		Code: 10000,
 		Msg:  global.I18nMap["10000"],
 		Data: data,

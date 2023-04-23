@@ -2,9 +2,10 @@ package middleware
 
 import (
 	"Go-IMS/global"
-	"Go-IMS/response"
+	"Go-IMS/param"
 	"Go-IMS/utils"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 // IsAdminAuth 用户权限中间件
@@ -20,10 +21,11 @@ func IsAdminAuth() gin.HandlerFunc {
 		currentUser := claims.(*utils.CustomClaims)
 		// 判断是否具有权限
 		if currentUser.AuthorityID != 1 {
-			response.Response(c, response.ResStruct{
+			failStruct := param.Resp{
 				Code: 10015,
 				Msg:  global.I18nMap["10015"],
-			})
+			}
+			c.JSON(http.StatusOK, failStruct)
 			// 中断之后的中间件
 			c.Abort()
 			return

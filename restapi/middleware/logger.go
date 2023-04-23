@@ -56,7 +56,7 @@ func GinRecovery(stack bool) gin.HandlerFunc {
 				if brokenPipe {
 					global.Lg.Error(c.Request.URL.Path,
 						zap.Any("error", err),
-						zap.String("reqstruct", string(httpRequest)),
+						zap.String("req", string(httpRequest)),
 					)
 					c.Error(err.(error))
 					c.Abort()
@@ -65,7 +65,7 @@ func GinRecovery(stack bool) gin.HandlerFunc {
 				if stack {
 					zap.L().Error("[Recovery from panic]",
 						zap.Any("error", err),
-						zap.String("reqstruct", string(httpRequest)),
+						zap.String("req", string(httpRequest)),
 						zap.String("stack", string(debug.Stack())),
 					)
 				} else {

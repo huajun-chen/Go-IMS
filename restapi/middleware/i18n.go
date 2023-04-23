@@ -2,10 +2,11 @@ package middleware
 
 import (
 	"Go-IMS/global"
-	"Go-IMS/response"
+	"Go-IMS/param"
 	"Go-IMS/utils"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"net/http"
 	"strings"
 )
 
@@ -28,10 +29,11 @@ func I18n() gin.HandlerFunc {
 		// 根据Accept-Language读取对应的json文件
 		translations, err := utils.ReadJSON(filePath)
 		if err != nil {
-			response.Response(c, response.ResStruct{
+			failStruct := param.Resp{
 				Code: 10006,
 				Msg:  global.I18nMap["10006"],
-			})
+			}
+			c.JSON(http.StatusOK, failStruct)
 			c.Abort()
 			return
 		}
