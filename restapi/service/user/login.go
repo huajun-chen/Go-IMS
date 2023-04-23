@@ -22,7 +22,7 @@ import (
 func SerLogin(reqLogin req.ReqLogin, c *gin.Context) param.Resp {
 	// 查询用户是否存在
 	userModel, err := user.DaoGetUserByUserName(reqLogin.UserName)
-	if err != nil {
+	if userModel == nil && err == nil {
 		failStruct := param.Resp{
 			Code: 10013,
 			Msg:  global.I18nMap["10013"],
