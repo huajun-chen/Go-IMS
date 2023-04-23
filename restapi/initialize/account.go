@@ -16,9 +16,9 @@ func InitAdminAccount() {
 	// 默认配置的管理员用户名
 	adminInfo := global.Settings.AdminInfo
 	// 查询admin是否存在
-	_, ok := dao.DaoFindUserInfoToUserName(adminInfo.UserName)
+	userModel, err := user.DaoGetUserByUserName(adminInfo.UserName)
 	// 不存在，创建
-	if !ok {
+	if userModel == nil && err == nil {
 		// 加密密码
 		pwdStr, err := utils.SetPassword(adminInfo.Password)
 		if err != nil {
@@ -29,5 +29,7 @@ func InitAdminAccount() {
 		if err := global.DB.Create(&user).Error; err != nil {
 			panic(err)
 		}
+	} else if err != nil {
+		panic(err)
 	}
 }
