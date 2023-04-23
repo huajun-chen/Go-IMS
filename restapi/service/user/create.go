@@ -6,7 +6,9 @@ import (
 	"Go-WMS/param"
 	"Go-WMS/param/req"
 	"Go-WMS/utils"
+	"fmt"
 	"net/http"
+	"strings"
 )
 
 // SerCreateUser 业务层：创建用户
@@ -16,7 +18,7 @@ import (
 // 返回值：
 //		param.Resp：响应的结构体
 func SerCreateUser(reqUser req.ReqCreateUser) param.Resp {
-	// 查询用户是否存在
+	// 查询用户是否存在，不包括被删除的用户
 	userModel, err := user.DaoGetUserByUserName(reqUser.UserName)
 	if userModel != nil {
 		failStruct := param.Resp{
@@ -47,11 +49,22 @@ func SerCreateUser(reqUser req.ReqCreateUser) param.Resp {
 	// 创建用户
 	err = user.DaoCreateUser(reqUser.UserName, pwdStr)
 	if err != nil {
-		failStruct := param.Resp{
-			Code: 10018,
-			Msg:  global.I18nMap["10018"],
+		if strings.Contains(err.Error(), "Duplicate entry") &&
+			strings.Contains(err.Error(), "for key 'idx_user_user_name'") {
+			// 唯一索引键重复错误
+			failStruct := param.Resp{
+				Code: 10026,
+				Msg:  fmt.Sprintf("'%s'%s'%s1'", reqUser.UserName, global.I18nMap["10026"], reqUser.UserName),
+			}
+			return failStruct
+		} else {
+			// 其他类型的错误
+			failStruct := param.Resp{
+				Code: 10018,
+				Msg:  global.I18nMap["10018"],
+			}
+			return failStruct
 		}
-		return failStruct
 	}
 	succStruct := param.Resp{
 		Code: http.StatusOK,
