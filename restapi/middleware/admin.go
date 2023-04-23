@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"Go-IMS/global"
-	"Go-IMS/param"
-	"Go-IMS/utils"
+	"Go-WMS/global"
+	"Go-WMS/param"
+	"Go-WMS/utils"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"Go-IMS/param/resp"
+	"Go-WMS/param/resp"
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/disk"
 	"github.com/shirou/gopsutil/mem"

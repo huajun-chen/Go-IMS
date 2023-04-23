@@ -1,7 +1,7 @@
 package initialize
 
 import (
-	"Go-IMS/global"
+	"Go-WMS/global"
 	"fmt"
 	"github.com/gin-gonic/gin/binding"
 	"github.com/go-playground/locales/en"

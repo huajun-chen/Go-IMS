@@ -1,8 +1,8 @@
 package initialize
 
 import (
-	"Go-IMS/config"
-	"Go-IMS/global"
+	"Go-WMS/config"
+	"Go-WMS/global"
 	"github.com/spf13/viper"
 )
 

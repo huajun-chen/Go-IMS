@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"Go-IMS/global"
+	"Go-WMS/global"
 	"time"
 )
 

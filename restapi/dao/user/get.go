@@ -1,9 +1,9 @@
 package user
 
 import (
-	"Go-IMS/global"
-	"Go-IMS/model"
-	"Go-IMS/utils"
+	"Go-WMS/global"
+	"Go-WMS/model"
+	"Go-WMS/utils"
 	"gorm.io/gorm"
 )
 

@@ -1,4 +1,4 @@
-module Go-IMS
+module Go-WMS
 
 go 1.18
 

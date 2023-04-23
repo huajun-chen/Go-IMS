@@ -1,8 +1,8 @@
 package utils
 
 import (
-	"Go-IMS/global"
-	"Go-IMS/model"
+	"Go-WMS/global"
+	"Go-WMS/model"
 )
 
 // Migration MYSQL迁移，建表，更新表

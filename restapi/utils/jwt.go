@@ -1,8 +1,8 @@
 package utils
 
 import (
-	"Go-IMS/global"
-	"Go-IMS/param"
+	"Go-WMS/global"
+	"Go-WMS/param"
 	"errors"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"

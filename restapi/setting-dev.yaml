@@ -1,4 +1,4 @@
-name: "Go-IMS"
+name: "Go-WMS"
 port: 8080
 page: 1
 pageSize: 20
@@ -7,7 +7,7 @@ rateLimitSwitch: false
 
 logs:
   level: "debug"
-  fileName: "./logs/Go-IMS.log"
+  fileName: "./logs/Go-WMS.log"
   maxSize: 100
   maxAge: 365
   maxBackups: 1000

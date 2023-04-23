@@ -1,9 +1,9 @@
 package user
 
 import (
-	"Go-IMS/dao/user"
-	"Go-IMS/global"
-	"Go-IMS/param"
+	"Go-WMS/dao/user"
+	"Go-WMS/global"
+	"Go-WMS/param"
 	"net/http"
 )
 

@@ -1,6 +1,6 @@
 package utils
 
-import "Go-IMS/global"
+import "Go-WMS/global"
 
 // PageZero 判断page和page_size参数是否为0
 // 参数：

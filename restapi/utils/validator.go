@@ -1,8 +1,8 @@
 package utils
 
 import (
-	"Go-IMS/global"
-	"Go-IMS/param"
+	"Go-WMS/global"
+	"Go-WMS/param"
 	"github.com/go-playground/validator/v10"
 	"strings"
 )

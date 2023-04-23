@@ -1,12 +1,12 @@
 package user
 
 import (
-	"Go-IMS/dao/user"
-	"Go-IMS/global"
-	"Go-IMS/model"
-	"Go-IMS/param"
-	"Go-IMS/param/req"
-	"Go-IMS/utils"
+	"Go-WMS/dao/user"
+	"Go-WMS/global"
+	"Go-WMS/model"
+	"Go-WMS/param"
+	"Go-WMS/param/req"
+	"Go-WMS/utils"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

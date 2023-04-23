@@ -1,9 +1,9 @@
 package router
 
 import (
-	"Go-IMS/controller/v1/other"
-	"Go-IMS/controller/v1/user"
-	"Go-IMS/middleware"
+	"Go-WMS/controller/v1/other"
+	"Go-WMS/controller/v1/user"
+	"Go-WMS/middleware"
 	"github.com/gin-gonic/gin"
 )
 

@@ -1,7 +1,7 @@
 package initialize
 
 import (
-	"Go-IMS/global"
+	"Go-WMS/global"
 	"context"
 	"fmt"
 	"github.com/fatih/color"
