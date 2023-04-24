@@ -8,5 +8,5 @@ type ReqCreateGoodsCategory struct {
 
 // ReqGetGoodsCategoryList 获取商品分类列表的参数
 type ReqGetGoodsCategoryList struct {
-	Type string `uri:"type" binding:"required,oneof='all' 'parent'"` // 查询的类型，查询全部分类/只查询父级分类
+	Type string `uri:"type" binding:"required,oneof='all' 'parent' 'son'"` // 查询的类型，查询全部分类/父级分类/子级分类
 }

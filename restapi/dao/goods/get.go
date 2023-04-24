@@ -28,6 +28,9 @@ func DaoGetGoodsCategoryList(getType string, page, pageSize int) (int, []model.G
 	case "parent":
 		whereClause = "parent_id = ?"
 		args = []interface{}{0}
+	case "son":
+		whereClause = "parent_id > ?"
+		args = []interface{}{0}
 	}
 	// 查询分类信息总数量
 	global.DB.Find(&category).Where(whereClause, args...).Count(&categoryCount)

@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ebe555ee-9a78-4ddb-bac2-912697b9a606" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/controller/v1/goods/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/controller/v1/goods/get.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restapi/dao/goods/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/dao/goods/get.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restapi/param/req/goods.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/param/req/goods.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/router/routerv1.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/router/routerv1.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/service/goods/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/service/goods/get.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
