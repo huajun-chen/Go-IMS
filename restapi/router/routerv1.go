@@ -1,6 +1,7 @@
 package router
 
 import (
+	"Go-WMS/controller/v1/goods"
 	"Go-WMS/controller/v1/other"
 	"Go-WMS/controller/v1/user"
 	"Go-WMS/middleware"
@@ -47,5 +48,15 @@ func Routerv1(r *gin.RouterGroup) {
 			userRouterTokenAdmin.GET("/list", user.ConGetUserList)            // 用户列表
 			userRouterTokenAdmin.DELETE("/info/:id", user.ConDeleteUser)      // 删除用户
 		}
+	}
+
+	// 商品模块
+	goodsRouter := r.Group("/goods")
+	{
+		// 需要Token的接口
+		goodsRouterToken := goodsRouter.Group("")
+		goodsRouterToken.Use(middleware.JWTAuth())
+		goodsRouterToken.POST("/category", goods.ConCreateGoodsCategory)            // 创建商品分类
+		goodsRouterToken.GET("/category/list/:type", goods.ConGetGoodsCategoryList) // 商品分类列表
 	}
 }

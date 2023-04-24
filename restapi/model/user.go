@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-// User user结构体
+// User 用户表
 type User struct {
 	ID        uint           `json:"id" gorm:"primarykey"`
 	CreatedAt time.Time      `json:"created_at"`
