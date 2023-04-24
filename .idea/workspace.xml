@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebe555ee-9a78-4ddb-bac2-912697b9a606" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/restapi/model/googs.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/controller/v1/goods/create.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/dao/goods/create.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/model/goods.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/param/req/goods.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restapi/service/goods/create.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/model/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/router/routerv1.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/router/routerv1.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/utils/migration.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/utils/migration.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
