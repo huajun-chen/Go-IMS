@@ -29,26 +29,33 @@ func DaoGetUserById(userId uint) (*model.User, error) {
 	return &user, nil
 }
 
-// DaoGetUserByUserName 根据用户名查询用户是否存在，并返回用户信息
+// DaoGetUserByUserName 根据用户名查询用户是否存在（包括被软删除的用户），并返回用户信息、是否被删除的状态
 // 参数：
-//		userName：用户名
+//      userName：用户名
 // 返回值：
-//		*model.User：用户信息的指针
-//		error：错误信息
-func DaoGetUserByUserName(userName string) (*model.User, error) {
+//      *model.User：用户信息的指针
+//      bool: 是否被软删除的状态
+//      error：错误信息
+func DaoGetUserByUserName(userName string) (*model.User, bool, error) {
 	var user model.User
-	res := global.DB.Where("user_name = ?", userName).First(&user)
+	// 使用Unscoped()找到被软删除的记录
+	res := global.DB.Unscoped().Where("user_name = ?", userName).First(&user)
 	if res.Error != nil {
 		if res.Error == gorm.ErrRecordNotFound {
 			// 用户不存在
-			return nil, nil
+			return nil, false, nil
 		} else {
 			// 查询出错
-			return nil, res.Error
+			return nil, false, res.Error
 		}
 	}
-	// 返回用户信息
-	return &user, nil
+	// 判断用户是否被软删除
+	if user.DeletedAt.Valid {
+		return nil, true, nil
+	} else {
+		// 返回用户信息
+		return &user, true, nil
+	}
 }
 
 // DaoGetUserList 获取用户列表信息

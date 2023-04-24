@@ -21,7 +21,7 @@ import (
 //		param.Resp：响应的结构体
 func SerLogin(reqLogin req.ReqLogin, c *gin.Context) param.Resp {
 	// 查询用户是否存在
-	userModel, err := user.DaoGetUserByUserName(reqLogin.UserName)
+	userModel, _, err := user.DaoGetUserByUserName(reqLogin.UserName)
 	if userModel == nil && err == nil {
 		failStruct := param.Resp{
 			Code: 10013,
