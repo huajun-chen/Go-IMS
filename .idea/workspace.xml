@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebe555ee-9a78-4ddb-bac2-912697b9a606" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/restapi/model/googs.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/dao/user/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/dao/user/get.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/initialize/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/initialize/account.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/service/user/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/service/user/create.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/service/user/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/service/user/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/model/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
