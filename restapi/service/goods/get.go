@@ -11,12 +11,13 @@ import (
 
 // SerGetGoodsCategoryList 业务层：获取商品分类列表
 // 参数：
+//		getType：查询的类型（all/parent）
 //		reqPage：默认的页数，每页数量参数
 // 返回值：
 //		param.Resp：响应的结构体
-func SerGetGoodsCategoryList(reqPage param.ReqPage) param.Resp {
+func SerGetGoodsCategoryList(getType string, reqPage param.ReqPage) param.Resp {
 	page, pageSize := utils.PageZero(reqPage.Page, reqPage.PageSize)
-	total, goodsCategoryList, err := goods.DaoGetGoodsCategoryList(page, pageSize)
+	total, goodsCategoryList, err := goods.DaoGetGoodsCategoryList(getType, page, pageSize)
 	if err != nil {
 		failStruct := param.Resp{
 			Code: 10004,
