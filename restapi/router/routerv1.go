@@ -56,6 +56,7 @@ func Routerv1(r *gin.RouterGroup) {
 		// 需要Token的接口
 		goodsRouterToken := goodsRouter.Group("")
 		goodsRouterToken.Use(middleware.JWTAuth())
-		goodsRouterToken.POST("/category", goods.ConCreateGoodsCategory) // 创建商品分类
+		goodsRouterToken.POST("/category", goods.ConCreateGoodsCategory)      // 创建商品分类
+		goodsRouterToken.GET("/category/list", goods.ConGetGoodsCategoryList) // 商品分类列表
 	}
 }

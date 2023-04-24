@@ -13,6 +13,7 @@ type GoodsCategory struct {
 	DeletedAt    gorm.DeletedAt `json:"deleted_at" gorm:"index"`
 	CategoryName string         `json:"category_name" gorm:"size:16;not null;default:'默认分类';comment:'分类名称'"`
 	ParentID     int            `json:"parent_id" gorm:"index;default:0;comment:'父级分类ID，默认为0，表示该分类没有父级分类'"`
+	Parent       *GoodsCategory `json:"parent" gorm:"foreignKey:ParentID;references:ID"` // 自关联
 }
 
 // TableName 自定义表名
